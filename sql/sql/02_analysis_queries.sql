@@ -1,8 +1,13 @@
-SELECT platform, 
-	AVG(views) AS avg_views,
-    AVG(likes) AS avg_likes,
-    AVG(comments) AS avg_comments
-FROM social_media_posts GROUP BY platform;
+SELECT platform,
+       AVG(views) AS avg_views,
+       AVG(likes) AS avg_likes,
+       AVG(comments) AS avg_comments
+FROM social_media_posts
+WHERE views IS NOT NULL
+  AND likes IS NOT NULL
+  AND comments IS NOT NULL
+GROUP BY platform;
+
 
 -- Result:
 --platform	   avg_views	 avg_likes	 avg_comments
