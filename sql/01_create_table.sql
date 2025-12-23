@@ -31,3 +31,11 @@ DESC social_media_posts;
 --shares	        int	YES		   NULL	
 --comments	        int	YES		   NULL	
 --engagement_level	varchar(20)	   YES		        NULL	
+
+
+CREATE VIEW engagement_view AS
+SELECT *,
+       (likes + comments + shares) AS engagement_score
+FROM social_media_posts;
+
+
